@@ -16,19 +16,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: const Text("Exemplo de MobX")),
-        body: Center(
-          child: Observer(
-            builder: (context) {
-              return Text("${controller.numero}");
-            }
-          )
-        ),
-
-        floatingActionButton: FloatingActionButton(
-          onPressed: (){
-            controller.aumentarNumero();
-          },
-          child: const Icon(Icons.add), 
+        body: Column(
+          children: [
+            Center(
+              child: Observer(
+                builder: (context) {
+                  return Text("${controller.numero}");
+                }
+              )
+            ),
+            TextButton(onPressed: (){controller.aumentarNumero();}, child: Text("Aumentar")),
+            TextButton(onPressed: (){controller.diminuirNumero();}, child: Text("Diminuir"))
+          ],
         ),
       ),
     );

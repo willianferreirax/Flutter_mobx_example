@@ -14,4 +14,8 @@ abstract class _MyStore with Store{
     numero++;
   }
 
+  @action
+  void diminuirNumero(){
+    numero--;
+  }
 }
